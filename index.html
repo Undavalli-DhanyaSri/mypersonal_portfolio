@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhanya's Portfolio</title>
+
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Custom Card Styling: Make certification cards uniform and visually appealing */
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 25px 0;
+      justify-content: center;
+    }
+
+    .certification-card {
+      background: var(--eerie-black-2, #272727);
+      border-radius: 14px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-2, 0 2px 6px rgba(0,0,0,0.15));
+      min-height: 325px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+      /* Ensure consistent card sizing */
+    }
+
+    .certification-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px 0 rgba(255, 193, 7, 0.29), 0 1.5px 12px 0 rgba(0,0,0,0.18);
+    }
+
+    .certification-card img {
+      width: 110px;
+      height: 110px;
+      margin-bottom: 16px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.09);
+      background: #222;
+    }
+
+    .certification-card h4 {
+      color: var(--white-2, #fff);
+      font-size: 1.13rem;
+      margin-bottom: 7px;
+      line-height: 1.38;
+      font-weight: 600;
+    }
+
+    .certification-card p {
+      color: var(--light-gray, #ccc);
+      font-size: 0.97rem;
+      margin: 0;
+    }
+
+    /* Responsive grid adjustments */
+    @media (max-width: 700px) {
+      .certifications-grid {
+        grid-template-columns: 1fr;
+      }
+      .certification-card {
+        min-height: 0;
+      }
+    }
+
+    /* BONUS: Subtle gradient background for main content for added pop */
+    .main-content {
+      background: linear-gradient(109deg, #232526 0%, #343a40 100%);
+      border-radius: 18px;
+      margin: 22px 0;
+      padding: 30px 15px 30px 15px;
+      box-shadow: 0 4px 24px 0 rgba(34, 49, 63, 0.18);
+    }
+
+    /* Visual accent for certifications section */
+    .certifications {
+      background: rgba(255, 215, 88, 0.08);
+      padding: 18px 0 32px 0;
+      border-radius: 13px;
+    }
+    .certifications h3 {
+      color: #FFD700;
+      letter-spacing: 1.1px;
+      margin-top: 5px;
+      margin-bottom: 25px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 1.28rem;
+    }
+
+    /* ATRRACTIVE BUTTONS ON HOVER */
+    button,
+    .form-btn {
+      background: linear-gradient(90deg, #fcba35 0%, #ffda7a 100%);
+      color: #232526;
+      border: none;
+      border-radius: 7px;
+      transition: background 0.4s, color 0.3s, box-shadow 0.3s;
+      font-weight: 600;
+      font-size: 1.03em;
+    }
+    button:hover, .form-btn:hover {
+      color: #fff;
+      background: linear-gradient(90deg, #ffb607 0%, #ffa726 100%);
+      box-shadow: 0 3px 20px 0 rgba(255, 203, 7, 0.13);
+    }
+
+    /* Sidebar Avatar Circle Accent */
+    .avatar-box img {
+      border: 3.4px solid #fcba35;
+      padding: 2px;
+    }
+
+    /* Navbar highlight bar */
+    .navbar-list .navbar-link.active {
+      background: linear-gradient(96deg, #fff7d6 0%, #ffe9ad 100%);
+      color: #232526;
+      font-weight: 700;
+      border-radius: 6px;
+    }
+
+    /* Extra: Subtle card pop for skills grid */
+    .skill-card {
+      transition: transform 0.26s, box-shadow 0.2s;
+      box-shadow: 0 2px 18px #ffde5637;
+      background: #272727;
+    }
+    .skill-card:hover {
+      transform: scale(1.035);
+      box-shadow: 0 8px 32px 0 #ffd7005c, 0 1.5px 12px 0 #4446;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/avatar-3.png" alt="Undavalli Dhanya Sri" width="80">
+        </figure>
+        <div class="info-content">
+          <h1 class="name" title="Undavalli Dhanya Sri">Undavalli Dhanya Sri</h1>
+          <p class="title">Undergraduate Student</p>
+        </div>
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:2200032980cseh@gmail.com" class="contact-link">2200032980cseh@gmail.com</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+918688817764" class="contact-link">+91-8688817764</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+              <time datetime="2006-01-06">January 06, 2006</time>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Rajahmundry, Andhra Pradesh, India</address>
+            </div>
+          </li>
+        </ul>
+        <div class="separator"></div>
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/undavallidhanyasri/" class="social-link" target="_blank">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://www.codechef.com/users/dhanyasri_0601" class="social-link" target="_blank">
+              <ion-icon name="code-slash-outline"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link>About</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+        </ul>
+      </nav>
+      <article class="about active" data-page="about">
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+        <section class="about-text">
+          <p>
+            I am an undergraduate student with a strong foundation in Computer Science & Engineering, passionate about full stack development.
+            I enjoy transforming complex problems into elegant, functional, and user-friendly solutions.
+          </p>
+          <p>
+            My goal is to build robust and intuitive web applications that are not only efficient but also visually appealing.
+            I strive to deliver high-quality products that effectively convey the intended message and identity.
+          </p>
+        </section>
+        <section class="service">
+          <h3 class="h3 service-title">What I'm good at</h3>
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Full Stack Development</h4>
+                <p class="service-item-text">
+                  High-quality development of web applications using modern frameworks like React.js, Node.js, and Spring Boot.
+                </p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg" alt="Web design icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Web Design</h4>
+                <p class="service-item-text">
+                  Creating modern and responsive user interfaces with a focus on user experience, gained from hands-on experience in responsive front-end development.
+                </p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="icon-box">
+                <ion-icon name="cloud-outline"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Cloud & DevOps</h4>
+                <p class="service-item-text">
+                  Experience with cloud platforms like AWS and Microsoft Azure for scalable deployments.
+                </p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="icon-box">
+                <ion-icon name="server-outline"></ion-icon>
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Database Management</h4>
+                <p class="service-item-text">
+                  Proficient in managing and optimizing databases such as MySQL and MongoDB.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section class="certifications">
+          <h3 class="h3 article-title">Certifications</h3>
+          <div class="certifications-grid">
+            <div class="certification-card">
+              <a href="#" target="_blank">
+                <img src="./assets/images/aws1.jpg" alt="AWS Certified Cloud Practitioner" onerror="this.onerror=null;this.src='https://placehold.co/120x120/555/fff?text=AWS';">
+              </a>
+              <h4>AWS Certified Cloud Practitioner (CLF C02)</h4>
+              <p>Foundational knowledge of AWS cloud concepts and services (May 19, 2024).</p>
+            </div>
+            <div class="certification-card">
+              <a href="#" target="_blank">
+                <img src="./assets/images/redhat_ex183.png" alt="Red Hat Certified Enterprise Application Developer" onerror="this.onerror=null;this.src='https://placehold.co/120x120/555/fff?text=Red Hat';">
+              </a>
+              <h4>Red Hat Certified Enterprise Application Developer (EX183)</h4>
+              <p>Validated skills in enterprise application development with Red Hat technologies (November 08, 2024).</p>
+            </div>
+            <div class="certification-card">
+              <a href="#" target="_blank">
+                <img src="./assets/images/csa.jpg" alt="ServiceNow Certified System Administrator" onerror="this.onerror=null;this.src='https://placehold.co/120x120/555/fff?text=ServiceNow CSA';">
+              </a>
+              <h4>ServiceNow Certified System Administrator (CSA)</h4>
+              <p>Certified in administering ServiceNow instances (June 10, 2025).</p>
+            </div>
+            <div class="certification-card">
+              <a href="#" target="_blank">
+                <img src="./assets/images/cad.png" alt="ServiceNow Certified Application Developer" onerror="this.onerror=null;this.src='https://placehold.co/120x120/555/fff?text=ServiceNow CAD';">
+              </a>
+              <h4>ServiceNow Certified Application Developer (CAD)</h4>
+              <p>Certified in developing applications on the ServiceNow platform (July 15, 2025).</p>
+            </div>
+            <div class="certification-card">
+              <a href="#" target="_blank">
+                <img src="./assets/images/Oracle.jpg" alt="Oracle Cloud Infrastructure 2024 Generative AI Certified Professional" onerror="this.onerror=null;this.src='https://placehold.co/120x120/555/fff?text=Oracle';">
+              </a>
+              <h4>Oracle Cloud Infrastructure 2024 Generative AI Certified Professional</h4>
+              <p>Certified in advanced AI capabilities on Oracle Cloud (July 25, 2024).</p>
+            </div>
+          </div>
+        </section>
+      </article>
+      <article class="resume" data-page="resume">
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Education</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">B.Tech in Computer Science & Engineering</h4>
+              <span>KL University — 2022-2026</span>
+              <p class="timeline-text">
+                Currently pursuing a Bachelor of Technology in Computer Science & Engineering with a CGPA of 9.42.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Intermediate (Mathematics, Physics & Chemistry)</h4>
+              <span>Sasi Junior College — 2020-2022</span>
+              <p class="timeline-text">
+                Completed Intermediate education with a CGPA of 9.73, focusing on Mathematics, Physics & Chemistry.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">SSC (BSEAP)</h4>
+              <span>Dr. K.K.R's Gowtham — 2019-2020</span>
+              <p class="timeline-text">
+                Completed SSC (BSEAP) with a CGPA of 9.80.
+              </p>
+            </li>
+          </ol>
+        </section>
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Experience & Extra-Curricular Activities</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Java Full Stack Developer - EduSkills Virtual Internship</h4>
+              <span>July 2024 - September 2024</span>
+              <p class="timeline-text">
+                Completed a 10-week virtual internship supported by EduSkills, gaining hands-on experience in Java Full Stack Development using Java, Spring Boot, and RESTful services.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Web Development Intern - Prodigy InfoTech</h4>
+              <span>June 15, 2024 - July 15, 2024</span>
+              <p class="timeline-text">
+                Completed a 4-week virtual internship, gaining hands-on experience in responsive front-end and dynamic back-end development.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Technical Event Participant: INSTAMAZE at CIS-SOIREE 2024</h4>
+              <span>December 2024</span>
+              <p class="timeline-text">
+                Participated in INSTAMAZE at CIS-SOIREE 2024, a national technical student event hosted by CISA at R.V.R. & J.C. College of Engineering, Guntur.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Web Development Workshop at IIT Hyderabad</h4>
+              <span>February 15-16, 2025</span>
+              <p class="timeline-text">
+                Attended the RemarkSkill Education Technical Workshop on Web Development at IIT Hyderabad, gaining hands-on experience with modern web technologies.
+              </p>
+            </li>
+          </ol>
+        </section>
+        <section class="skill">
+          <h3 class="h3 skills-title article-title">Professional Skillset</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <img src="./assets/images/skills/java.png" alt="Java" onerror="this.onerror=null;this.src='https://placehold.co/60x60/555/fff?text=Java';">
+              <h5>Java</h5>
+            </div>
+            <div class="skill-card">
+              <img src="./assets/images/skills/python.png" alt="Python" onerror="this.onerror=null;this.src='https://placehold.co/60x60/555/fff?text=Python';">
+              <h5>Python</h5>
+            </div>
+            <div class="skill-card">
+              <img src="./assets/images/skills/js.png" alt="JavaScript" onerror="this.onerror=null;this.src='https://placehold.co/60x60/555/fff?text=JS';">
+              <h5>JavaScript</h5>
+            </div>
+            <div class="skill-card">
+              <img src="./assets/images/skills/c.png" alt="C" onerror="this.onerror=null;this.src='https://placehold.co/60x60/555/fff?text=C';">
+              <h5>C</h5>
+            </div>
+            <div class="skill-card">
+              <img src="./assets/images/skills/react.png" alt="React.js" onerror="this.onerror=null;this.src='https://placehold.co/60x60/555/fff?text=React';">
+              <h5>React.js</h5>
+            </div>
+            <div class="skill-card">
+              <img src="./assets/images/skills/spring-boot.png" alt="Spring Boot" onerror="this.onerror=null;this.src='https://placehold.co/60x60/555/fff?text=Spring';">
+              <h5>Spring Boot</h5>
+            </div>
+            <div class="skill-card">
+              <img src="./assets/images/skills/aws.png" alt="AWS" onerror="this.onerror=null;this.src='https://placehold.co/60x60/555/fff?text=AWS';">
+              <h5>AWS</h5>
+            </div>
+            <div class="skill-card">
+              <img src="./assets/images/skills/azure.png" alt="Microsoft Azure" onerror="this.onerror=null;this.src='https://placehold.co/60x60/555/fff?text=Azure';">
+              <h5>Azure</h5>
+            </div>
+            <div class="skill-card">
+              <img src="./assets/images/skills/mysql.png" alt="MySQL" onerror="this.onerror=null;this.src='https://placehold.co/60x60/555/fff?text=MySQL';">
+              <h5>MySQL</h5>
+            </div>
+            <div class="skill-card">
+              <img src="./assets/images/skills/mongodb.png" alt="MongoDB" onerror="this.onerror=null;this.src='https://placehold.co/60x60/555/fff?text=MongoDB';">
+              <h5>MongoDB</h5>
+            </div>
+          </div>
+        </section>
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="folder-open-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Projects</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Learning Management System (Full Stack Python Development)</h4>
+              <p class="timeline-text">
+                Engineered a scalable LMS platform using Flask and Django with PostgreSQL backend, enabling dynamic course creation, content delivery, and real-time student progress tracking, improving learning engagement by 40% and streamlining admin tasks by 30%.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Library Management System (Enterprise App Development - Red Hat)</h4>
+              <p class="timeline-text">
+                Developed an enterprise-level library solution using Red Hat CodeReady Studio and Java EE, automating inventory management, user registration, and overdue alerts, which reduced manual tracking errors by 50% and enhanced service response time.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Online Art Gallery System (MERN Stack Web Development)</h4>
+              <p class="timeline-text">
+                Built a feature-rich web app using React.js, Node.js, and MongoDB, allowing artists to exhibit and sell artwork online.
+                Integrated secure login with JWT and Stripe-based transactions, boosting platform usability and improving sales cycle efficiency by 35%.
+              </p>
+            </li>
+          </ol>
+        </section>
+      </article>
+      <article class="contact" data-page="contact">
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.6791548701548!2d81.78542261487643!3d17.005647988283123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37a039ccccccc9%3A0xc5c81a9c315a6bb2!2sRajahmundry%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1721400000000!5m2!1sen!2sin"
+              width="400" height="300" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </figure>
+        </section>
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
+          <form action="#" class="form" data-form>
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <button class="back-to-top" data-back-to-top>
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </button>
+
+  <script src="./assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
